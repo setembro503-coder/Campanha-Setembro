@@ -16,23 +16,38 @@ body {
 
 /* CABEÇALHO */
 header {
-  background: #fdd835;
-  color: #222;
+  background: url("https://images.unsplash.com/photo-1508780709619-79562169bc64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")
+              center/cover no-repeat;
+  color: #fff;
   text-align: center;
-  padding: 2.5rem 1rem;
+  padding: 3.5rem 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   animation: fadeInDown 1s ease;
+  position: relative;
+}
+
+/* camada escura para dar contraste no texto */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+header h1,
+header p {
+  position: relative; /* garante que fiquem sobre a camada escura */
+  z-index: 1;
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 0.5rem;
 }
 
 header p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
-
 /* MENU DE NAVEGAÇÃO */
 .menu {
   background: #fdd835;
@@ -365,3 +380,4 @@ footer {
     text-align: left;
   }
 }
+
