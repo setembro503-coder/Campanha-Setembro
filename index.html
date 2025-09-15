@@ -9,15 +9,26 @@
     <link rel="icon" type="image/png" href="android-chrome-192x192.png">
   </head>
   <body>
-    <header>
+    <header id="topo">
       <h1>Setembro Amarelo</h1>
       <p>Você não está sozinho. Sua vida importa!</p>
     </header>
 
+    <!-- MENU DE NAVEGAÇÃO -->
+    <nav class="menu">
+      <ul>
+        <li><a href="#topo">Início</a></li>
+        <li><a href="#info">Prevenção</a></li>
+        <li><a href="#palavras">Palavras</a></li>
+        <li><a href="#ajuda">Ajuda</a></li>
+        <li><a href="#links">Parceiros</a></li>
+      </ul>
+    </nav>
+
     <main class="layout">
       <!-- Conteúdo principal (lado esquerdo) -->
       <div class="content">
-        <section class="info">
+        <section id="info" class="info">
           <h2>Prevenção contra o suicidio e mutilação</h2>
           <p>
             A dor que você sente agora é real, mas ela não é eterna.
@@ -30,7 +41,7 @@
           </ul>
         </section>
 
-        <section class="palavras">
+        <section id="palavras" class="palavras">
           <h2>Palavras que podem te ajudar</h2>
           <div class="mensagem" id="mensagemMotivacional">
             Clique no botão abaixo para receber uma mensagem de apoio ❤️
@@ -38,7 +49,7 @@
           <button onclick="novaMensagem()">Nova Mensagem</button>
         </section>
 
-        <section class="ajuda">
+        <section id="ajuda" class="ajuda">
           <h2>Procure ajuda</h2>
           <p>
             Se você está passando por momentos difíceis, converse com alguém. Você pode ligar para o <strong>CVV - 188</strong> (Centro de Valorização da Vida), disponível 24h.
@@ -48,14 +59,12 @@
       </div>
 
       <!-- Barra lateral (lado direito) -->
-      <aside class="sidebar">
+      <aside class="sidebar" id="links">
         <section class="links">
           <h2>Links de Apoio / Parceiros</h2>
 
           <!-- Lista de links (populada pelo JS) -->
-          <ul id="parceirosList" aria-live="polite">
-            <!-- itens renderizados via JavaScript -->
-          </ul>
+          <ul id="parceirosList" aria-live="polite"></ul>
 
           <!-- Formulário para adicionar novo parceiro -->
           <form id="addParceiroForm" class="add-parceiro" onsubmit="return adicionarParceiro(event)">
