@@ -14,48 +14,65 @@
       <p>Você não está sozinho. Sua vida importa!</p>
     </header>
 
-    <main>
-      <section class="info">
-        <h2>Prevenção contra o suicidio e mutilação</h2>
-        <p>
-          A dor que você sente agora é real, mas ela não é eterna. 
-          A vida é cheia de altos e baixos, e o momento difícil que você enfrenta pode ser superado com ajuda, apoio e tempo.
-        </p>
-        <ul>
-          <li>Você é importante para alguém, mesmo que não veja agora.</li>
-          <li>Existem profissionais e pessoas que querem te ajudar.</li>
-          <li>Você pode encontrar novas razões para sorrir novamente.</li>
-        </ul>
-      </section>
+    <main class="layout">
+      <!-- Conteúdo principal (lado esquerdo) -->
+      <div class="content">
+        <section class="info">
+          <h2>Prevenção contra o suicidio e mutilação</h2>
+          <p>
+            A dor que você sente agora é real, mas ela não é eterna.
+            A vida é cheia de altos e baixos, e o momento difícil que você enfrenta pode ser superado com ajuda, apoio e tempo.
+          </p>
+          <ul>
+            <li>Você é importante para alguém, mesmo que não veja agora.</li>
+            <li>Existem profissionais e pessoas que querem te ajudar.</li>
+            <li>Você pode encontrar novas razões para sorrir novamente.</li>
+          </ul>
+        </section>
 
-      <section class="palavras">
-        <h2>Palavras que podem te ajudar</h2>
-        <div class="mensagem" id="mensagemMotivacional">
-          Clique no botão abaixo para receber uma mensagem de apoio ❤️
-        </div>
-        <button onclick="novaMensagem()">Nova Mensagem</button>
-      </section>
+        <section class="palavras">
+          <h2>Palavras que podem te ajudar</h2>
+          <div class="mensagem" id="mensagemMotivacional">
+            Clique no botão abaixo para receber uma mensagem de apoio ❤️
+          </div>
+          <button onclick="novaMensagem()">Nova Mensagem</button>
+        </section>
 
-      <section class="ajuda">
-        <h2>Procure ajuda</h2>
-        <p>
-          Se você está passando por momentos difíceis, converse com alguém. Você pode ligar para o <strong>CVV - 188</strong> (Centro de Valorização da Vida), disponível 24h.
-        </p>
-        <a href="https://www.cvv.org.br/" target="_blank" class="botao-ajuda">Acesse o site do CVV</a>
-      </section>
+        <section class="ajuda">
+          <h2>Procure ajuda</h2>
+          <p>
+            Se você está passando por momentos difíceis, converse com alguém. Você pode ligar para o <strong>CVV - 188</strong> (Centro de Valorização da Vida), disponível 24h.
+          </p>
+          <a href="https://www.cvv.org.br/" target="_blank" class="botao-ajuda">Acesse o site do CVV</a>
+        </section>
+      </div>
 
-      <!-- NOVA SEÇÃO DE LINKS -->
-      <section class="links">
-        <h2>Links de Apoio</h2>
-        <ul>
-          <li><a href="https://www.cvv.org.br/" target="_blank">CVV - Centro de Valorização da Vida</a></li>
-          <li><a href="https://www.setembroamarelo.org.br/" target="_blank">Setembro Amarelo Oficial</a></li>
-          <!-- Outras pessoas podem adicionar seus sites aqui -->
-          <!-- Exemplo:
-          <li><a href="https://meusite.com" target="_blank">Meu Site</a></li>
-          -->
-        </ul>
-      </section>
+      <!-- Barra lateral (lado direito) -->
+      <aside class="sidebar">
+        <section class="links">
+          <h2>Links de Apoio / Parceiros</h2>
+
+          <!-- Lista de links (populada pelo JS) -->
+          <ul id="parceirosList" aria-live="polite">
+            <!-- itens renderizados via JavaScript -->
+          </ul>
+
+          <!-- Formulário para adicionar novo parceiro -->
+          <form id="addParceiroForm" class="add-parceiro" onsubmit="return adicionarParceiro(event)">
+            <label for="nomeParceiro">Nome do site</label>
+            <input id="nomeParceiro" name="nomeParceiro" type="text" placeholder="Ex.: Meu Site" required />
+
+            <label for="urlParceiro">URL</label>
+            <input id="urlParceiro" name="urlParceiro" type="url" placeholder="https://exemplo.com" required />
+
+            <button type="submit">Adicionar Link</button>
+          </form>
+
+          <p class="nota">
+            Os links adicionados ficam salvos no seu navegador (localStorage). Para compartilhamento público, envie ao mantenedor do site.
+          </p>
+        </section>
+      </aside>
     </main>
 
     <footer>
@@ -65,4 +82,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
