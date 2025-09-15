@@ -16,22 +16,14 @@ body {
 
 /* CABEÇALHO */
 header {
-  background: linear-gradient(135deg, #fdd835 50%, #000 50%);
-  color: #fff;
+  background: #fdd835 url("https://www.transparenttextures.com/patterns/black-floral.png") repeat;
+  color: #222;
   text-align: center;
   padding: 3.5rem 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   animation: fadeInDown 1s ease;
   position: relative;
   min-height: 260px;
-}
-
-/* camada suave para dar contraste no texto */
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.35); /* leve transparência */
 }
 
 header h1,
@@ -43,12 +35,12 @@ header p {
 header h1 {
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: #000;
 }
 
 header p {
   font-size: 1.3rem;
-  color: #fdfdfd;
+  color: #222;
 }
 /* MENU DE NAVEGAÇÃO */
 .menu {
@@ -382,5 +374,6 @@ footer {
     text-align: left;
   }
 }
+
 
 
