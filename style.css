@@ -40,16 +40,18 @@ header p {
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo */
 }
 
 .menu ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   list-style: none;
   margin: 0;
-  padding: 0.8rem;
+  padding: 0.8rem 0;
   gap: 1.2rem;
-}
 
 .menu li a {
   text-decoration: none;
@@ -327,3 +329,4 @@ footer {
     text-align: left;
   }
 }
+
