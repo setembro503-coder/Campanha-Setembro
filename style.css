@@ -1,223 +1,289 @@
 /* RESET */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* BODY E GERAL */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #fffdf5;
-  color: #333;
-  line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-/* CABEÇALHO */
-header {
-  background: #fdd835;
-  color: #222;
-  text-align: center;
-  padding: 2.5rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  animation: fadeInDown 1s ease;
-}
-
-header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
-}
-
-header p {
-  font-size: 1.2rem;
-}
-
-/* CONTEÚDO PRINCIPAL */
-main {
-  padding: 2rem;
-  max-width: 960px;
-  margin: auto;
-  animation: fadeInUp 1.2s ease;
-}
-
-section {
-  margin-bottom: 2.5rem;
-  padding: 1.8rem;
-  background: #ffffff;
-  border-left: 6px solid #fdd835;
-  border-radius: 10px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
-}
-
-section:hover {
-  transform: translateY(-3px);
-}
-
-h2 {
-  margin-bottom: 1rem;
-  color: #444;
-  font-size: 1.6rem;
-}
-
-ul {
-  margin-top: 1rem;
-  padding-left: 1.5rem;
-}
-
-li {
-  margin-bottom: 0.6rem;
-  font-size: 1.05rem;
-}
-
-/* PALAVRAS DE APOIO */
-.palavras {
-  text-align: center;
-}
-
-.mensagem {
-  background: #fff7cc;
-  border: 1px solid #fcd34d;
-  padding: 1.2rem;
-  border-radius: 8px;
-  margin: 1.5rem 0;
-  font-size: 1.15rem;
-  color: #6b4d1f;
-  min-height: 60px;
-  transition: background-color 0.3s ease;
-  animation: fadeIn 1.5s ease;
-}
-
-/* BOTÕES */
-button {
-  background-color: #fdd835;
-  color: #000;
-  border: none;
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-button:hover {
-  background-color: #fbc02d;
-  transform: scale(1.05);
-}
-
-/* BOTÃO AJUDA */
-.botao-ajuda {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: #ef5350;
-  color: #fff;
-  padding: 0.8rem 1.5rem;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.botao-ajuda:hover {
-  background-color: #e53935;
-  transform: scale(1.05);
-}
-
-/* LINKS DE APOIO */
-.links ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.links li {
-  margin: 0.6rem 0;
-}
-
-.links a {
-  display: inline-block;
-  padding: 0.6rem 1rem;
-  background: #fff7cc;
-  border: 1px solid #fcd34d;
-  border-radius: 8px;
-  text-decoration: none;
-  color: #6b4d1f;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.links a:hover {
-  background: #fdd835;
-  color: #000;
-  transform: scale(1.05);
-}
-
-/* RODAPÉ */
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #fdd835;
-  color: #222;
-  margin-top: 2rem;
-  animation: fadeIn 2s ease;
-}
-
-/* ANIMAÇÕES */
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* RESPONSIVO */
-@media (max-width: 768px) {
+  
+  /* BODY E GERAL */
   body {
-    padding: 0 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #fffdf5;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
-
+  
+  /* CABEÇALHO */
+  header {
+    background: #fdd835;
+    color: #222;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: fadeInDown 1s ease;
+  }
+  
   header h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
   }
-
+  
+  header p {
+    font-size: 1.2rem;
+  }
+  
+  /* LAYOUT PRINCIPAL: conteúdo + sidebar */
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 320px; /* conteúdo principal + coluna fixa para parceiros */
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1100px;
+    margin: auto;
+    animation: fadeInUp 1.2s ease;
+  }
+  
+  /* Em telas menores: uma coluna só */
+  @media (max-width: 900px) {
+    .layout {
+      grid-template-columns: 1fr;
+      padding: 1.2rem;
+    }
+  }
+  
+  /* CONTEÚDO */
+  .content section {
+    margin-bottom: 2.5rem;
+    padding: 1.8rem;
+    background: #ffffff;
+    border-left: 6px solid #fdd835;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+  }
+  
+  .content section:hover {
+    transform: translateY(-3px);
+  }
+  
   h2 {
-    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #444;
+    font-size: 1.6rem;
   }
-
-  .mensagem {
-    font-size: 1rem;
+  
+  .content ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
   }
-
-  .links a {
-    display: block;
+  
+  .content li {
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+  
+  /* PALAVRAS DE APOIO */
+  .palavras {
     text-align: center;
   }
-}
+  
+  .mensagem {
+    background: #fff7cc;
+    border: 1px solid #fcd34d;
+    padding: 1.2rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-size: 1.15rem;
+    color: #6b4d1f;
+    min-height: 60px;
+    transition: background-color 0.3s ease;
+    animation: fadeIn 1.5s ease;
+  }
+  
+  /* BOTÕES */
+  button {
+    background-color: #fdd835;
+    color: #000;
+    border: none;
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #fbc02d;
+    transform: scale(1.05);
+  }
+  
+  /* BOTÃO AJUDA */
+  .botao-ajuda {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: #ef5350;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .botao-ajuda:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+  }
+  
+  /* SIDEBAR (coluna de parceiros) */
+  .sidebar .links {
+    padding: 1.6rem;
+    background: #ffffff;
+    border-left: 6px solid #fdd835;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+  }
+  
+  .sidebar h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  #parceirosList {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    max-height: 360px;
+    overflow: auto;
+  }
+  
+  /* cada item do parceiro */
+  #parceirosList li {
+    margin: 0.6rem 0;
+  }
+  
+  #parceirosList a {
+    display: block;
+    padding: 0.6rem 0.8rem;
+    background: #fff7cc;
+    border: 1px solid #fcd34d;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #6b4d1f;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  #parceirosList a:hover {
+    background: #fdd835;
+    color: #000;
+    transform: translateY(-2px);
+  }
+  
+  /* FORMULÁRIO ADD PARCEIRO */
+  .add-parceiro {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .add-parceiro label {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .add-parceiro input[type="text"],
+  .add-parceiro input[type="url"] {
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #e6d89a;
+    background: #fffaf0;
+    font-size: 0.95rem;
+  }
+  
+  .add-parceiro button {
+    padding: 0.6rem;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+  
+  /* nota explicativa */
+  .nota {
+    margin-top: 0.8rem;
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  /* RODAPÉ */
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #fdd835;
+    color: #222;
+    margin-top: 2rem;
+    animation: fadeIn 2s ease;
+  }
+  
+  /* ANIMAÇÕES */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* RESPONSIVO específico */
+  @media (max-width: 768px) {
+    body {
+      padding: 0 1rem;
+    }
+  
+    header h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.4rem;
+    }
+  
+    .mensagem {
+      font-size: 1rem;
+    }
+  
+    /* faz os links da sidebar ficarem em bloco e ocuparem largura */
+    #parceirosList a {
+      display: block;
+      text-align: left;
+    }
+  }
+  
