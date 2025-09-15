@@ -14,33 +14,52 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* CABEÇALHO */
+/* CABEÇALHO ELEGANTE */
 header {
   background: #fdd835 url("https://www.transparenttextures.com/patterns/black-floral.png") repeat;
-  color: #222;
+  background-size: 180px 180px;
+  color: #fff;
   text-align: center;
-  padding: 3.5rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-  animation: fadeInDown 1s ease;
+  padding: 4rem 1rem;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
   position: relative;
-  min-height: 260px;
+  overflow: hidden;
 }
 
-header h1,
-header p {
-  position: relative;
-  z-index: 1;
+/* camada de suavização */
+header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 0;
 }
 
 header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 0.5rem;
-  color: #000;
+  font-size: 3rem;
+  margin-bottom: 0.8rem;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+  animation: fadeInDown 1.2s ease, brilho 3s infinite alternate;
 }
 
 header p {
-  font-size: 1.3rem;
-  color: #222;
+  font-size: 1.4rem;
+  color: #fdfdfd;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 2s ease;
+}
+
+/* animação de brilho no título */
+@keyframes brilho {
+  from {
+    text-shadow: 0 0 5px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.2);
+  }
+  to {
+    text-shadow: 0 0 15px rgba(255,255,255,0.8), 0 0 25px rgba(255,255,255,0.5);
+  }
 }
 /* MENU DE NAVEGAÇÃO */
 .menu {
@@ -374,6 +393,7 @@ footer {
     text-align: left;
   }
 }
+
 
 
 
