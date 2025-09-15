@@ -16,38 +16,39 @@ body {
 
 /* CABEÇALHO */
 header {
-  background: url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80")
-              center/cover no-repeat;
+  background: linear-gradient(135deg, #fdd835 50%, #000 50%);
   color: #fff;
   text-align: center;
   padding: 3.5rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   animation: fadeInDown 1s ease;
   position: relative;
   min-height: 260px;
 }
 
-/* camada escura para dar contraste no texto */
+/* camada suave para dar contraste no texto */
 header::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.35); /* leve transparência */
 }
 
 header h1,
 header p {
-  position: relative; /* garante que fiquem sobre a camada escura */
+  position: relative;
   z-index: 1;
 }
 
 header h1 {
   font-size: 2.8rem;
   margin-bottom: 0.5rem;
+  color: #fff;
 }
 
 header p {
   font-size: 1.3rem;
+  color: #fdfdfd;
 }
 /* MENU DE NAVEGAÇÃO */
 .menu {
@@ -381,4 +382,5 @@ footer {
     text-align: left;
   }
 }
+
 
