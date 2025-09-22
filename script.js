@@ -42,7 +42,7 @@ const STORAGE_KEY = 'parceiros_setembro_amarelo_v2';
 const parceirosPadrao = [
   { nome: 'CVV - Centro de Valorização da Vida', url: 'https://www.cvv.org.br/' },
   { nome: 'Setembro Amarelo Oficial', url: 'https://www.setembroamarelo.org.br/' },
-  { nome: 'Oficina Bem Estar', url: 'https://patrickoliveiraqwe7-blip.github.io/Bem-estar/' },
+  { nome: 'Oficina Bem Estar', url: 'https://patrickoliveiraqwe7-blip.github.io/Bem-estar/' }
 ];
 
 function carregarParceiros() {
@@ -145,6 +145,7 @@ function adicionarParceiro(event) {
 document.addEventListener('DOMContentLoaded', () => {
   renderizarParceiros();
 });
+
 
 
 
