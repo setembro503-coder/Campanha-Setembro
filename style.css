@@ -438,3 +438,41 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+.introducao {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: #fffef5;
+  border-left: 6px solid #fdd835;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  animation: fadeInUp 1.5s ease;
+  text-align: center;
+}
+
+.introducao h2 {
+  font-size: 1.4rem;
+  color: #444;
+  margin-bottom: 0.8rem;
+}
+
+.introducao p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.introducao .destaque {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #d97706; /* tom dourado para chamar atenção */
+  margin-top: 1rem;
+  animation: pulse 2s infinite;
+}
+
+/* animação de pulsar suave */
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
