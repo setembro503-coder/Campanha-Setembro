@@ -12,32 +12,27 @@ const mensagens = [
 
 function novaMensagem() {
   const elemento = document.getElementById('mensagemMotivacional');
-
-  // Aplica o efeito de fade-out
   elemento.classList.add('fade-out');
 
-  // Aguarda o fade-out antes de trocar a mensagem
   setTimeout(() => {
     const indice = Math.floor(Math.random() * mensagens.length);
     const novaMensagem = mensagens[indice];
 
     elemento.innerText = novaMensagem;
 
-    // Força o reflow para reiniciar a animação
-    void elemento.offsetWidth;
-
-    // Aplica fade-in
+    void elemento.offsetWidth; // reinicia animação
     elemento.classList.remove('fade-out');
     elemento.classList.add('fade-in');
   }, 250);
 }
 
-/* ======= Gerenciamento de parceiros (localStorage) ======= */
+/* ======= Links de apoio (localStorage) ======= */
 const STORAGE_KEY = 'parceiros_setembro_amarelo';
 
 const parceirosPadrao = [
   { nome: 'CVV - Centro de Valorização da Vida', url: 'https://www.cvv.org.br/' },
-  { nome: 'Setembro Amarelo Oficial', url: 'https://www.setembroamarelo.org.br/' }
+  { nome: 'Setembro Amarelo Oficial', url: 'https://www.setembroamarelo.org.br/' },
+  { nome: 'Projeto Desabafos', url: 'https://projetodesabafos.netlify.app/' }
 ];
 
 function carregarParceiros() {
@@ -128,87 +123,78 @@ function adicionarParceiro(event) {
   return false;
 }
 
-/* ======= Gráficos interativos (Chart.js) ======= */
-function criarGraficos() {
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: { display: true },
-    },
-    animation: {
-      duration: 1200,
-      easing: 'easeOutBounce'
-    }
-  };
-
+/* ======= Gráficos Chart.js (dados reais da pesquisa) ======= */
+function inicializarGraficos() {
+  // Gráfico 1: Já ouviu falar do Setembro Amarelo?
   new Chart(document.getElementById("grafico1"), {
-    type: "pie",
+    type: 'pie',
     data: {
       labels: ["Sim", "Não"],
-      datasets: [{ data: [70, 30], backgroundColor: ["#fdd835", "#ef5350"] }]
-    },
-    options
-  });
-
-  new Chart(document.getElementById("grafico2"), {
-    type: "bar",
-    data: {
-      labels: ["Baixa", "Média", "Alta"],
-      datasets: [{ label: "Estresse", data: [20, 50, 30], backgroundColor: ["#81c784", "#fdd835", "#e57373"] }]
-    },
-    options
-  });
-
-  new Chart(document.getElementById("grafico3"), {
-    type: "doughnut",
-    data: {
-      labels: ["Feliz", "Triste", "Ansioso"],
-      datasets: [{ data: [40, 35, 25], backgroundColor: ["#4fc3f7", "#ba68c8", "#ffb74d"] }]
-    },
-    options
-  });
-
-  new Chart(document.getElementById("grafico4"), {
-    type: "line",
-    data: {
-      labels: ["Jan", "Fev", "Mar", "Abr", "Mai"],
-      datasets: [{ label: "Bem-estar", data: [3, 4, 2, 5, 4], borderColor: "#fdd835", backgroundColor: "rgba(253, 216, 53, 0.3)", tension: 0.4, fill: true }]
-    },
-    options
-  });
-
-  new Chart(document.getElementById("grafico5"), {
-    type: "radar",
-    data: {
-      labels: ["Sono", "Alimentação", "Exercício", "Lazer", "Trabalho"],
       datasets: [{
-        label: "Equilíbrio",
-        data: [6, 5, 7, 4, 6],
-        backgroundColor: "rgba(255, 202, 40, 0.3)",
-        borderColor: "#ffca28"
+        data: [42, 177],
+        backgroundColor: ["#f1c40f", "#95a5a6"]
       }]
     },
-    options
+    options: { responsive: true, animation: { animateScale: true } }
   });
-}
 
-/* ======= Animação de entrada dos cards ======= */
-function animarGraficos() {
-  const cards = document.querySelectorAll(".grafico-card");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("animar");
-      }
-    });
-  }, { threshold: 0.2 });
+  // Gráfico 2: Principal tema
+  new Chart(document.getElementById("grafico2"), {
+    type: 'bar',
+    data: {
+      labels: ["Prevenção ao suicídio", "Trânsito seguro", "Combate às drogas", "Não sei"],
+      datasets: [{
+        label: "Respostas",
+        data: [186, 9, 6, 18],
+        backgroundColor: ["#f39c12", "#3498db", "#e74c3c", "#7f8c8d"]
+      }]
+    },
+    options: { responsive: true, animation: { duration: 1500 } }
+  });
 
-  cards.forEach(card => observer.observe(card));
+  // Gráfico 3: Importância de falar sobre suicídio
+  new Chart(document.getElementById("grafico3"), {
+    type: 'doughnut',
+    data: {
+      labels: ["Muito importante", "Importante", "Pouco importante", "Não sei"],
+      datasets: [{
+        data: [205, 8, 2, 4],
+        backgroundColor: ["#2ecc71", "#f1c40f", "#e67e22", "#95a5a6"]
+      }]
+    },
+    options: { responsive: true, animation: { animateRotate: true } }
+  });
+
+  // Gráfico 4: Já pensou em suicídio
+  new Chart(document.getElementById("grafico4"), {
+    type: 'pie',
+    data: {
+      labels: ["Sim", "Não"],
+      datasets: [{
+        data: [49, 170],
+        backgroundColor: ["#e74c3c", "#2ecc71"]
+      }]
+    },
+    options: { responsive: true, animation: { animateScale: true } }
+  });
+
+  // Gráfico 5: Sabe onde buscar ajuda
+  new Chart(document.getElementById("grafico5"), {
+    type: 'bar',
+    data: {
+      labels: ["Sim", "Não"],
+      datasets: [{
+        label: "Respostas",
+        data: [143, 76],
+        backgroundColor: ["#27ae60", "#c0392b"]
+      }]
+    },
+    options: { responsive: true, animation: { duration: 1500 } }
+  });
 }
 
 /* ======= Inicialização ======= */
 document.addEventListener('DOMContentLoaded', () => {
   renderizarParceiros();
-  criarGraficos();
-  animarGraficos();
+  inicializarGraficos();
 });
