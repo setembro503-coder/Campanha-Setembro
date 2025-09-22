@@ -7,6 +7,8 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="android-chrome-192x192.png">
+    <!-- Biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header id="topo">
@@ -23,6 +25,7 @@
         <li><a href="#ajuda">Ajuda</a></li>
         <li><a href="#links">Parceiros</a></li>
         <li><a href="#video">Vídeo</a></li>
+        <li><a href="#resultados">Resultados</a></li>
       </ul>
     </nav>
 
@@ -56,6 +59,19 @@
             Se você está passando por momentos difíceis, converse com alguém. Você pode ligar para o <strong>CVV - 188</strong> (Centro de Valorização da Vida), disponível 24h.
           </p>
           <a href="https://www.cvv.org.br/" target="_blank" class="botao-ajuda">Acesse o site do CVV</a>
+        </section>
+
+        <!-- SEÇÃO DE GRÁFICOS -->
+        <section id="resultados" class="resultados">
+          <h2>Resultados da Pesquisa</h2>
+          <p>Confira abaixo alguns dados coletados em nossa pesquisa de conscientização:</p>
+          <div class="graficos-container">
+            <div class="grafico-card"><canvas id="grafico1"></canvas></div>
+            <div class="grafico-card"><canvas id="grafico2"></canvas></div>
+            <div class="grafico-card"><canvas id="grafico3"></canvas></div>
+            <div class="grafico-card"><canvas id="grafico4"></canvas></div>
+            <div class="grafico-card"><canvas id="grafico5"></canvas></div>
+          </div>
         </section>
       </div>
 
@@ -103,6 +119,23 @@
       <p>Campanha de prevenção ao suicídio - Setembro Amarelo 💛</p>
     </footer>
 
+    <!-- JS principal -->
     <script src="script.js"></script>
+
+    <!-- Script para animação dos gráficos -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".grafico-card");
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("animar");
+            }
+          });
+        }, { threshold: 0.3 });
+
+        cards.forEach(card => observer.observe(card));
+      });
+    </script>
   </body>
 </html>
