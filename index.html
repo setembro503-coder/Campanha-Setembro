@@ -61,16 +61,36 @@
           <a href="https://www.cvv.org.br/" target="_blank" class="botao-ajuda">Acesse o site do CVV</a>
         </section>
 
-        <!-- SEÇÃO DE GRÁFICOS -->
+        <!-- NOVA SEÇÃO DE RESULTADOS -->
         <section id="resultados" class="resultados">
           <h2>Resultados da Pesquisa</h2>
           <p>Confira abaixo alguns dados coletados em nossa pesquisa de conscientização:</p>
-          <div class="graficos-container">
-            <div class="grafico-card"><canvas id="grafico1"></canvas></div>
-            <div class="grafico-card"><canvas id="grafico2"></canvas></div>
-            <div class="grafico-card"><canvas id="grafico3"></canvas></div>
-            <div class="grafico-card"><canvas id="grafico4"></canvas></div>
-            <div class="grafico-card"><canvas id="grafico5"></canvas></div>
+
+          <div class="graficos-grid">
+            <div class="grafico-item">
+              <h3>Você já ouviu falar do Setembro Amarelo?</h3>
+              <canvas id="grafico1" width="200" height="200"></canvas>
+            </div>
+
+            <div class="grafico-item">
+              <h3>É importante falar sobre saúde mental?</h3>
+              <canvas id="grafico2" width="200" height="200"></canvas>
+            </div>
+
+            <div class="grafico-item">
+              <h3>Quando tem problemas, você costuma:</h3>
+              <canvas id="grafico3" width="200" height="200"></canvas>
+            </div>
+
+            <div class="grafico-item">
+              <h3>Você conhece o CVV?</h3>
+              <canvas id="grafico4" width="200" height="200"></canvas>
+            </div>
+
+            <div class="grafico-item">
+              <h3>Conversar sobre suicídio ajuda a prevenir?</h3>
+              <canvas id="grafico5" width="200" height="200"></canvas>
+            </div>
           </div>
         </section>
       </div>
@@ -119,22 +139,60 @@
       <p>Campanha de prevenção ao suicídio - Setembro Amarelo 💛</p>
     </footer>
 
-    <!-- JS principal -->
     <script src="script.js"></script>
 
-    <!-- Script para animação dos gráficos -->
+    <!-- Scripts para gráficos -->
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".grafico-card");
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("animar");
-            }
-          });
-        }, { threshold: 0.3 });
+      // Função genérica para criar gráficos
+      function criarGrafico(id, tipo, labels, dados, cores) {
+        new Chart(document.getElementById(id), {
+          type: tipo,
+          data: {
+            labels: labels,
+            datasets: [{
+              data: dados,
+              backgroundColor: cores
+            }]
+          },
+          options: {
+            plugins: { legend: { position: "bottom" } }
+          }
+        });
+      }
 
-        cards.forEach(card => observer.observe(card));
+      // Gráfico 1
+      criarGrafico("grafico1", "pie", ["Sim", "Não"], [90, 10], ["#FFD700", "#333"]);
+
+      // Gráfico 2
+      criarGrafico("grafico2", "pie", ["Sim", "Não"], [95, 5], ["#28a745", "#dc3545"]);
+
+      // Gráfico 3
+      criarGrafico("grafico3", "bar",
+        ["Amigos/Família", "Ajuda Profissional", "Guardar para si"],
+        [40, 30, 30],
+        ["#007bff", "#17a2b8", "#ffc107"]
+      );
+
+      // Gráfico 4
+      criarGrafico("grafico4", "doughnut", ["Sim", "Não"], [35, 65], ["#6f42c1", "#e83e8c"]);
+
+      // Gráfico 5
+      criarGrafico("grafico5", "pie", ["Sim", "Não"], [92, 8], ["#20c997", "#fd7e14"]);
+    </script>
+    <script>
+      // Detecta quando os gráficos aparecem na tela
+      const graficos = document.querySelectorAll(".grafico-item");
+    
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      }, { threshold: 0.2 });
+    
+      graficos.forEach(grafico => {
+        observer.observe(grafico);
       });
     </script>
   </body>
